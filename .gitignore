@@ -1,0 +1,6 @@
+node_modules
+vendor
+.env
+.env_local
+.env_server_main
+.env_server_test
