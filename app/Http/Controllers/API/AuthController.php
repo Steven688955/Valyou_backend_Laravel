@@ -32,7 +32,7 @@ class AuthController extends Controller
     }
         
     public function register(Request $request) 
-    { 
+    {
         $validator = Validator::make($request->all(), [ 
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -45,13 +45,14 @@ class AuthController extends Controller
         if ($validator->fails()) { 
           return response()->json([ 'error'=> $validator->errors() ]);
         }
-     
+        
         $data = $request->all(); 
         
         $data['password'] = Hash::make($data['password']);
         
         $user = User::create($data); 
-        $success['token'] =  $user->createToken('AppName')->accessToken;
+        // $success['token'] =  $user->createToken('AppName')->accessToken;
+        
         return response()->json(['success'=>$success], 200);
     }
       

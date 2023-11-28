@@ -281,7 +281,8 @@ class HomeController extends Controller {
                                                 (SELECT sum(amount) from revenue_details  where type =6 ) as credit_card")
     	->first();
     	$setting = Settings::get();
-    	$setting = $setting[0];
+    	// $setting = $setting[0];
+        
     
     	if(Auth::user()->roles->contains(1)){
             // api charge listing data load
